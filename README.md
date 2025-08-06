@@ -68,10 +68,7 @@ Returns departments that hired more employees than the mean for the specified ye
 - Departments above mean hires (2021):
   - [http://localhost:5000/reports/above-mean-hires?year=2021](http://localhost:5000/reports/above-mean-hires?year=2021)
 
-## Missing Features / To Do
 
-- **Swagger Documentation:** The API documentation UI (Swagger) is not yet enabled. Flasgger was attempted but not working; needs troubleshooting or alternative.
-- **CSV Upload Limit:** If more than 1000 records are uploaded for employees, the process should be stopped or handled in batches. Currently, only up to 1000 records are accepted per request.
 
 ## Data Folder
 
@@ -87,3 +84,30 @@ The `data` folder contains sample CSV files used for testing the API endpoints. 
 
 - All error and status messages are returned in English.
 - The project uses Flask, SQLAlchemy, and PostgreSQL. All configuration is managed via Docker Compose and environment variables in `.env`.
+
+
+
+## Missing Features / To Do
+
+ - **Swagger Documentation:** The API documentation UI (Swagger) is not yet enabled. Flasgger was attempted but not working; needs troubleshooting or alternative.
+ - **CSV Upload Limit:** If more than 1000 records are uploaded for employees, the process should be stopped or handled in batches. Currently, only up to 1000 records are accepted per request.
+ - **Pytest Tests:** Automated tests using the `pytest` library are pending and should be implemented for better coverage and maintainability.
+ - **Configuration Refactor:** Moving environment and app configuration to a dedicated `config.py` file is recommended for better structure and maintainability.
+
+ **Better structure:** 
+challengeGlobant/
+  ├── src/
+  │     ├── app.py
+  │     ├── models.py
+  │     ├── config.py
+  │     ├── api/
+  │     ├── services/
+  │     └── utils/
+  ├── tests/
+  ├── data/
+  ├── migrations/
+  ├── Dockerfile
+  ├── docker-compose.yml
+  ├── requirements.txt
+  ├── .env
+  └── README.md
