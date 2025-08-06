@@ -1,20 +1,18 @@
 version: '3.8'
 
 services:
-  # Servicio de la API Flask
   api:
     build: .
     container_name: flask_api
     ports:
       - "5000:5000"
     volumes:
-      - .:/app  # Sincroniza tu código local con el contenedor
+      - .:/app
     env_file:
-      - .env    # Carga las variables de entorno desde el archivo .env
+      - .env
     depends_on:
-      - db      # Se asegura de que la base de datos se inicie primero
+      - db
 
-  # Servicio de la Base de Datos PostgreSQL
   db:
     image: postgres:latest
     container_name: postgres_db
@@ -23,7 +21,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - "5432:5432" # Expone el puerto de la BD a tu máquina local (opcional)
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
