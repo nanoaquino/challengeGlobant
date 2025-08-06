@@ -4,6 +4,19 @@
 ## Project Overview
 This project is a Data Engineering API for Globant’s coding challenge. It provides endpoints to upload CSV data, batch insert employees, and generate reports on employee hires by department and job.
 
+
+## Environment Setup
+
+Before starting the project, create a `.env` file in the root directory with the following parameters:
+
+```env
+POSTGRES_USER=xxx
+POSTGRES_PASSWORD=xxxx123
+POSTGRES_DB=dbmigration
+
+DATABASE_URL=postgresql://xxx:xxxx123@db:5432/dbmigration
+```
+
 ## How to Start the Project
 
 1. **Build and Start Docker Containers**
@@ -59,6 +72,16 @@ Returns departments that hired more employees than the mean for the specified ye
 
 - **Swagger Documentation:** The API documentation UI (Swagger) is not yet enabled. Flasgger was attempted but not working; needs troubleshooting or alternative.
 - **CSV Upload Limit:** If more than 1000 records are uploaded for employees, the process should be stopped or handled in batches. Currently, only up to 1000 records are accepted per request.
+
+## Data Folder
+
+The `data` folder contains sample CSV files used for testing the API endpoints. These files can be used to verify the upload and batch insert functionalities:
+
+- `departments.csv`: Example data for departments.
+- `jobs.csv`: Example data for jobs.
+- `employees.csv`: Example data for employees.
+
+
 
 ## Notes
 
